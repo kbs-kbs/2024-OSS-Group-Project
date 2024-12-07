@@ -1,5 +1,5 @@
 ---
-name: "제안"
+name: "Suggestion issue template"
 about: "제안을 위한 이슈 템플릿"
 title: ""
 labels: "제안"
