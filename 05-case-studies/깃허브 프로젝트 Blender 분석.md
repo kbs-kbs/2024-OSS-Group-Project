@@ -1,5 +1,3 @@
-# Blender 프로젝트 분석
-
 ## 1. 개요
 **Blender**는 오픈소스 3D 모델링, 애니메이션, 렌더링, 그리고 VFX(시각효과) 제작 도구로, 다양한 산업 분야에서 활용되고 있습니다. Blender는 무료로 제공되며, 뛰어난 확장성과 강력한 커뮤니티 지원으로 유명합니다.
 
@@ -65,70 +63,74 @@
 ---
 
 ## 5. 빌드 환경 구성
-
 ### 1. 필수 의존성 설치
-#### Linux
+- Linux
 Blender 빌드에 필요한 의존성을 설치:
 ```bash
 make deps
 ```
  - window : Visual Studio 와 CMake 설치
  - macOS : Homebrew를 사용해 설치
+
 ### 2. 방식
- ✓ 이슈 확인 
- ✓ 브랜치 생성
- ✓ 코드 작성 및 테스트 : 수정하거나 추가할 코드를 작성한 후, Blender UI에서 테스트
- ✓ 커밋 및 패치 작성 : 변경 사항을 커밋
- ✓ 패치 제출 : Pull Request(Blender에서는 "Diff"라고 부름)를 제출
+
+1. 이슈 확인 
+2. 브랜치 생성
+3. 코드 작성 및 테스트: 수정하거나 추가할 코드를 작성한 후, Blender UI에서 테스트
+4. 커밋 및 패치 작성: 변경 사항을 커밋
+5. 패치 제출: Pull Request(Blender에서는 "Diff"라고 부름)를 제출
+
 ---
 ---
 ## 6. Blender 리포지토리 구조
+
+```
+blender/
+├── .gitea/
+├── .github/
+├── source/
+    ├── blender/
+    │   ├── editors/
+    │   ├── render/
+    │   ├── io/
+    │   └── ...
+    └── ...
+├── intern/
+    ├── guardedalloc/
+    ├── mikktspace/
+    ├── cycles/
+    └── ...
+├── release/
+    ├── datafiles/
+    └── ...
+```
+
 ### 1. `source/`
 Blender의 주요 소스 코드가 포함된 디렉토리로, Blender의 핵심 기능이 구현되어 있습니다.
-
-- **`source/blender/`**: Blender의 주요 기능 및 사용자 인터페이스(UI)를 구성하는 코드.
-  - **`editors/`**: 사용자 인터페이스와 관련된 코드(UI, 단축키, 툴바 등).
-  - **`render/`**: 렌더링 엔진과 관련된 코드.
-  - **`io/`**: 파일 입출력(I/O) 처리 코드(FBX, OBJ, USD 등 파일 포맷 지원).
-
-- **`source/gameengine/`**: 과거 Blender 게임 엔진 관련 코드(현재는 비활성화 상태).
-
----
+- **`source/blender/`**: Blender의 주요 기능 및 사용자 인터페이스(UI)를 구성하는 코드   
+  - **`editors/`**: 사용자 인터페이스와 관련된 코드(UI, 단축키, 툴바 등)
+  - **`render/`**: 렌더링 엔진과 관련된 코드
+  - **`io/`**: 파일 입출력(I/O) 처리 코드(FBX, OBJ, USD 등 파일 포맷 지원)
 
 ### 2. `intern/`
 Blender 내부적으로 사용되는 라이브러리 및 유틸리티 코드가 포함된 디렉토리입니다.
-
-- **`intern/guardedalloc/`**: 메모리 할당 및 관리를 담당하는 모듈.
-- **`intern/mikktspace/`**: 텍스처의 탠젠트 공간(Tangent Space) 계산을 위한 모듈.
-- **`intern/cycles/`**: Cycles 렌더링 엔진과 관련된 내부 코드.
-
----
+- **`intern/guardedalloc/`**: 메모리 할당 및 관리를 담당하는 모듈
+- **`intern/mikktspace/`**: 텍스처의 탄젠트 공간(Tangent Space) 계산을 위한 모듈
+- **`intern/cycles/`**: Cycles 렌더링 엔진과 관련된 내부 코드
 
 ### 3. `release/`
 Blender의 릴리스 및 배포와 관련된 파일과 설정이 포함된 디렉토리입니다.
-
-- **`release/scripts/`**: Blender 애드온(Add-ons)과 파이썬 스크립트가 포함된 디렉토리.
-  - 사용자 정의 툴 및 확장을 위한 스크립트.
-- **`release/datafiles/`**: Blender의 UI 리소스(아이콘, 테마 등).
-
----
+- **`release/datafiles/`**: Blender의 UI 리소스(아이콘, 테마 등)
 
 ### 4. `tests/`
 Blender의 테스트 코드를 포함하는 디렉토리로, 품질 보증과 자동화된 테스트를 수행합니다.
-
-- **`tests/python/`**: 파이썬 기반의 테스트 스크립트가 포함.
-- **`tests/gpu/`**: GPU 렌더링 관련 테스트 코드.
-
----
+- **`tests/python/`**: 파이썬 기반의 테스트 스크립트가 포함
 
 ### 5. `doc/`
 Blender 개발자 및 사용자용 문서화 파일이 포함된 디렉토리입니다.
+- **`doc/doxygen/`**: API 문서화를 위한 Doxygen 설정 파일
+- **`doc/python_api/`**: 파이썬 API 문서
 
-- **`doc/doxygen/`**: API 문서화를 위한 Doxygen 설정 파일.
-- **`doc/python_api/`**: 파이썬 API 문서.
-
----
----
 ## 7. 개선 및 제언
 
 1. **초보자 지원 강화**
