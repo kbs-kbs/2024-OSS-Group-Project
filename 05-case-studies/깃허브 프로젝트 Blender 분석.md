@@ -64,13 +64,13 @@
 
 ## 5. 빌드 환경 구성
 ### 1. 필수 의존성 설치
-- Linux
-Blender 빌드에 필요한 의존성을 설치:
-```bash
-make deps
-```
- - window : Visual Studio 와 CMake 설치
- - macOS : Homebrew를 사용해 설치
+- Linux: Blender 빌드에 필요한 의존성을 설치
+  
+  ```bash
+  make deps
+  ```
+ - window: Visual Studio 와 CMake 설치
+ - macOS: Homebrew를 사용해 설치
 
 ### 2. 방식
 
@@ -80,8 +80,6 @@ make deps
 4. 커밋 및 패치 작성: 변경 사항을 커밋
 5. 패치 제출: Pull Request(Blender에서는 "Diff"라고 부름)를 제출
 
----
----
 ## 6. Blender 리포지토리 구조
 
 ```
