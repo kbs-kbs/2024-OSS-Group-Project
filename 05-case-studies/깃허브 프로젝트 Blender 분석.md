@@ -89,20 +89,29 @@ blender/
 ├── .gitea/
 ├── .github/
 ├── source/
-    ├── blender/
-    │   ├── editors/
-    │   ├── render/
-    │   ├── io/
-    │   └── ...
-    └── ...
+│   ├── blender/
+│   │   ├── editors/
+│   │   ├── render/
+│   │   ├── io/
+│   │   └── ...
+│   └── ...
 ├── intern/
-    ├── guardedalloc/
-    ├── mikktspace/
-    ├── cycles/
-    └── ...
+│   ├── guardedalloc/
+│   ├── mikktspace/
+│   ├── cycles/
+│   └── ...
 ├── release/
-    ├── datafiles/
-    └── ...
+│   ├── datafiles/
+│   └── ...
+├── tests/
+│   ├── python/
+│   └── ...
+├── doc/
+│   ├── doxygen/
+│   ├── python_api/
+│   └── ...
+├── ...
+└── README.md
 ```
 
 ### 1. `source/`
